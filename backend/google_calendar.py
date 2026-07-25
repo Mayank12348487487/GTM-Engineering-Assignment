@@ -12,7 +12,7 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
-def get_google_auth_url() -> str:
+def get_google_auth_url(state: str = None) -> str:
     """Generates the authorization URL for Google OAuth."""
     client_id = settings.google_client_id
     client_secret = settings.google_client_secret
@@ -39,10 +39,11 @@ def get_google_auth_url() -> str:
         autogenerate_code_verifier=False
     )
     
-    authorization_url, state = flow.authorization_url(
+    authorization_url, state_out = flow.authorization_url(
         access_type="offline",
         include_granted_scopes="true",
-        prompt="consent"
+        prompt="consent",
+        state=state
     )
     
     # We can save state if needed, but for simplicity we return the url

@@ -449,7 +449,7 @@ function App() {
         return;
       }
 
-      const res = await fetch(`${API_BASE}/api/google/login`);
+      const res = await fetch(`${API_BASE}/api/google/login?state=${encodeURIComponent(window.location.origin)}`);
       const data = await res.json();
       if (res.ok && data.url) {
         window.location.href = data.url;

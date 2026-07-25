@@ -767,26 +767,27 @@ def get_emails():
 
 # Google Calendar Integration Endpoints
 @app.get("/api/google/login")
-def google_login():
+def google_login(state: Optional[str] = Query(None)):
     try:
-        auth_url = get_google_auth_url()
+        auth_url = get_google_auth_url(state=state)
         return {"url": auth_url}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 @app.get("/api/google/callback")
-def google_callback(code: Optional[str] = None, error: Optional[str] = None):
+def google_callback(code: Optional[str] = None, error: Optional[str] = None, state: Optional[str] = None):
+    frontend_base = state if state else "http://localhost:5173"
     if error:
-        return RedirectResponse(url=f"http://localhost:5173/settings?google_error={error}")
+        return RedirectResponse(url=f"{frontend_base}/settings?google_error={error}")
     if not code:
-        return RedirectResponse(url="http://localhost:5173/settings?google_error=Missing+authorization+code")
+        return RedirectResponse(url=f"{frontend_base}/settings?google_error=Missing+authorization+code")
     try:
         exchange_code_for_token(code)
         # Redirect back to the settings page on the React frontend
-        return RedirectResponse(url="http://localhost:5173/settings?google_connected=true")
+        return RedirectResponse(url=f"{frontend_base}/settings?google_connected=true")
     except Exception as e:
         # Redirect with error parameter
-        return RedirectResponse(url=f"http://localhost:5173/settings?google_error={str(e)}")
+        return RedirectResponse(url=f"{frontend_base}/settings?google_error={str(e)}")
 
 @app.get("/api/google/status")
 def google_status():
