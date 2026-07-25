@@ -20,6 +20,9 @@ class Config:
         
     @property
     def google_redirect_uri(self):
+        env_val = os.getenv("GOOGLE_REDIRECT_URI")
+        if env_val:
+            return env_val.strip()
         return get_setting("google_redirect_uri", "http://localhost:8000/api/google/callback").strip()
         
     @property
