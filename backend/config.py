@@ -24,7 +24,7 @@ class Config:
         
     @property
     def smtp_host(self):
-        return get_setting("smtp_host", "smtp.gmail.com")
+        return get_setting("smtp_host", "smtp.gmail.com").strip()
         
     @property
     def smtp_port(self):
@@ -32,21 +32,21 @@ class Config:
         if not val or not str(val).strip():
             return 587
         try:
-            return int(val)
+            return int(str(val).strip())
         except ValueError:
             return 587
         
     @property
     def smtp_user(self):
-        return get_setting("smtp_user", "")
+        return get_setting("smtp_user", "").strip()
         
     @property
     def smtp_pass(self):
-        return get_setting("smtp_pass", "")
+        return get_setting("smtp_pass", "").strip()
         
     @property
     def smtp_from(self):
-        return get_setting("smtp_from", "")
+        return get_setting("smtp_from", "").strip()
         
     @property
     def email_mode(self):
