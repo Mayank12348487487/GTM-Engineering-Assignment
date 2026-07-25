@@ -1,0 +1,233 @@
+/* Interview Scheduling dashboard — scoped styles */
+
+.scheduler-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scheduler-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.scheduler-status-pill.connected {
+  color: var(--status-passed);
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.scheduler-status-pill.disconnected {
+  color: var(--text-muted);
+}
+
+.scheduler-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.scheduler-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: rgba(19, 27, 46, 0.4);
+}
+
+.scheduler-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scheduler-feature-icon.calendar {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--status-scheduled);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.scheduler-feature-icon.meet {
+  background: rgba(20, 184, 166, 0.12);
+  color: var(--accent-teal);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.scheduler-feature-icon.email {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-indigo);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.scheduler-feature-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.scheduler-feature-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.scheduler-board {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem;
+}
+
+.scheduler-panel {
+  padding: 1.5rem;
+}
+
+.scheduler-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.scheduler-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.scheduler-panel-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+.scheduler-candidate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scheduler-candidate-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  transition: var(--transition-smooth);
+}
+
+.scheduler-candidate-row:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.scheduler-candidate-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.scheduler-candidate-email {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.scheduler-interview-card {
+  padding: 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, rgba(19, 27, 46, 0.5) 100%);
+  transition: var(--transition-smooth);
+}
+
+.scheduler-interview-card:hover {
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.scheduler-interview-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.scheduler-interview-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+}
+
+.scheduler-meet-link-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.scheduler-meet-link-text {
+  flex: 1;
+  font-size: 0.8rem;
+  color: var(--accent-teal);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scheduler-card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.scheduler-empty {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  color: var(--text-muted);
+}
+
+.scheduler-empty svg {
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}
+
+.scheduler-empty p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .scheduler-features {
+    grid-template-columns: 1fr;
+  }
+
+  .scheduler-board {
+    grid-template-columns: 1fr;
+  }
+}
