@@ -12,15 +12,15 @@ class Config:
         
     @property
     def google_client_id(self):
-        return get_setting("google_client_id", os.getenv("GOOGLE_CLIENT_ID", ""))
+        return get_setting("google_client_id", os.getenv("GOOGLE_CLIENT_ID", "")).strip()
         
     @property
     def google_client_secret(self):
-        return get_setting("google_client_secret", os.getenv("GOOGLE_CLIENT_SECRET", ""))
+        return get_setting("google_client_secret", os.getenv("GOOGLE_CLIENT_SECRET", "")).strip()
         
     @property
     def google_redirect_uri(self):
-        return get_setting("google_redirect_uri", "http://localhost:8000/api/google/callback")
+        return get_setting("google_redirect_uri", "http://localhost:8000/api/google/callback").strip()
         
     @property
     def smtp_host(self):
