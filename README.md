@@ -1,4 +1,4 @@
-# GTM Engineering — AI Candidate Screening Platform
+#  AI Candidate Screening Platform
 
 An end-to-end recruiting pipeline that screens candidates with AI, manages technical assessments, and **automatically schedules interviews** for qualified applicants via **Google Calendar** with **auto-generated Google Meet links**.
 
